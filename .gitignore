@@ -1,2 +1,4 @@
 .hypothesis
 __pycache__
+tests/.tests
+python/lsst/obs/rubinGenericCamera/version.py

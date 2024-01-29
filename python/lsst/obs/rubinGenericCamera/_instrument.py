@@ -89,10 +89,13 @@ class RubinGenericCamera(LsstCam):
     def extractDetectorRecord(self, camGeomDetector):
         """Create a Gen3 Detector entry dict from a cameraGeom.Detector.
         """
+        purpose = str(camGeomDetector.getType()).split(".")[-1]
+
         return dict(
             instrument=self.getName(),
             id=camGeomDetector.getId(),
             full_name=camGeomDetector.getName(),
+            purpose=purpose,
         )
 
 
