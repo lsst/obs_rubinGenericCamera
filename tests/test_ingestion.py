@@ -16,22 +16,6 @@ except (LookupError, lsst.pex.exceptions.NotFoundError):
     testDataDirectory = None
 
 
-@unittest.skipIf(True, "RHL") # testDataDirectory is None, "obs_rubinGenericCamera must be set up")
-class StarTrackerWideIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
-    instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerWide"
-
-    visits = None                       # we don't have a definition of visits
-
-    def setUp(self):
-        self.ingestdir = os.path.dirname(__file__)
-        self.instrument = StarTrackerWide()
-        self.file = os.path.join(testDataDirectory, "data", "input", "raw", "GC101_O_20221208_000211.fits.gz")
-        self.dataIds = [dict(instrument="StarTrackerWide", exposure=2022120800211, detector=0)]
-        self.filterLabel = RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS[0].makeFilterLabel()
-
-        super().setUp()
-
-
 @unittest.skipIf(testDataDirectory is None, "obs_rubinGenericCamera must be set up")
 class StarTrackerNarrwIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
     instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerNarrw"
@@ -48,7 +32,23 @@ class StarTrackerNarrwIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
         super().setUp()
 
 
-@unittest.skipIf(True, "RHL") # testDataDirectory is None, "obs_rubinGenericCamera must be set up")
+@unittest.skipIf(testDataDirectory is None, "obs_rubinGenericCamera must be set up")
+class StarTrackerWideIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
+    instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerWide"
+
+    visits = None                       # we don't have a definition of visits
+
+    def setUp(self):
+        self.ingestdir = os.path.dirname(__file__)
+        self.instrument = StarTrackerWide()
+        self.file = os.path.join(testDataDirectory, "data", "input", "raw", "GC101_O_20221208_000211.fits.gz")
+        self.dataIds = [dict(instrument="StarTrackerWide", exposure=2022120800211, detector=0)]
+        self.filterLabel = RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS[0].makeFilterLabel()
+
+        super().setUp()
+
+
+@unittest.skipIf(testDataDirectory is None, "obs_rubinGenericCamera must be set up")
 class StarTrackerFastIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
     instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerFast"
 
