@@ -22,10 +22,8 @@
 import os.path
 import unittest
 import astropy.units as u
-import astropy.units.cds as cds
-import lsst.obs.lsst.translators  # noqa: F401 -- register the translators
 from lsst.obs.rubinGenericCamera.translator import StarTrackerNarrwTranslator, \
-    StarTrackerWideTranslator, StarTrackerFastTranslator
+    StarTrackerWideTranslator, StarTrackerFastTranslator   # noqa: F401 -- register the translators
 
 from astro_metadata_translator.tests import MetadataAssertHelper
 
@@ -45,14 +43,14 @@ class RubinGenericCameraMetadataTranslatorTestCase(unittest.TestCase, MetadataAs
              dict(telescope="Simonyi Survey Telescope",
                   instrument="StarTrackerWide",
                   boresight_rotation_coord="sky",
-                  dark_time=5.0*u.s,
+                  dark_time=5.0 * u.s,
                   detector_group="None",
                   detector_name="AlliedVision GT3300",
                   detector_num=0,
                   detector_serial="00:0f:31:03:60:c2",
                   exposure_id=2022120800211,
                   exposure_group="2022-12-09T05:20:47.840",
-                  exposure_time=5.0*u.s,
+                  exposure_time=5.0 * u.s,
                   group_counter_start=212,
                   group_counter_end=212,
                   object="UNKNOWN",
@@ -71,14 +69,14 @@ class RubinGenericCameraMetadataTranslatorTestCase(unittest.TestCase, MetadataAs
              dict(telescope="Simonyi Survey Telescope",
                   instrument="StarTrackerNarrw",
                   boresight_rotation_coord="sky",
-                  dark_time=3.0*u.s,
+                  dark_time=3.0 * u.s,
                   detector_group="None",
                   detector_name="AlliedVision GT3400",
                   detector_num=0,
                   detector_serial="00:0f:31:03:ae:60",
                   exposure_id=2022120800211,
                   exposure_group="2022-12-09T05:20:47.841",
-                  exposure_time=3.0*u.s,
+                  exposure_time=3.0 * u.s,
                   group_counter_start=212,
                   group_counter_end=212,
                   object="UNKNOWN",
@@ -97,14 +95,14 @@ class RubinGenericCameraMetadataTranslatorTestCase(unittest.TestCase, MetadataAs
              dict(telescope="Simonyi Survey Telescope",
                   instrument="StarTrackerFast",
                   boresight_rotation_coord="sky",
-                  dark_time=0.1*u.s,
+                  dark_time=0.1 * u.s,
                   detector_group="None",
                   detector_name="AlliedVision GC650M",
                   detector_num=0,
                   detector_serial="00:0F:31:03:3F:BA",
                   exposure_id=2022120800211,
                   exposure_group="2022-12-09T05:20:47.842",
-                  exposure_time=0.1*u.s,
+                  exposure_time=0.1 * u.s,
                   group_counter_start=212,
                   group_counter_end=212,
                   object="UNKNOWN",

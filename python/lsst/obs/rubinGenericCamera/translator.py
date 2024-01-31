@@ -217,6 +217,7 @@ class StarTrackerWideTranslator(StarTrackerTranslator):
     def to_detector_serial(self):
         return "00:0f:31:03:60:c2"      # MAC address
 
+
 class StarTrackerFastTranslator(StarTrackerTranslator):
     name = "StarTrackerFast"
     """Name of this translation class"""
