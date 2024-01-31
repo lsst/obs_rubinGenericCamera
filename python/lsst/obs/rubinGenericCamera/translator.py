@@ -30,8 +30,8 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
     DETECTOR_MAX = 1
 
     _const_map = {"detector_num": 0,
+                  "boresight_rotation_coord": "sky",
                   "physical_filter": "empty",
-                  "detector_serial": "0xdeadbeef",
                   "detector_group": "None",
                   "relative_humidity": None,
                   "pressure": None,
@@ -107,17 +107,6 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
             return (darkTime, dict(unit=u.s))
         return self.to_exposure_time()
 
-    def _is_on_mountain(self):
-        """Indicate whether these data are coming from the instrument
-        installed on the mountain.
-
-        Returns
-        -------
-        is : `bool`
-            `True` if instrument is on the mountain.
-        """
-        return not self._header.get("TSTAND")
-
 
 class StarTrackerTranslator(RubinGenericCameraTranslator):
     name = None                         # must be specialised
@@ -186,6 +175,10 @@ class StarTrackerNarrwTranslator(StarTrackerTranslator):
     def to_instrument(self):
         return "StarTrackerNarrw"
 
+    @cache_translation
+    def to_detector_serial(self):
+        return "00:0f:31:03:ae:60"
+
 
 class StarTrackerWideTranslator(StarTrackerTranslator):
     name = "StarTrackerWide"
@@ -220,6 +213,9 @@ class StarTrackerWideTranslator(StarTrackerTranslator):
     def to_instrument(self):
         return "StarTrackerWide"
 
+    @cache_translation
+    def to_detector_serial(self):
+        return "00:0f:31:03:60:c2"      # MAC address
 
 class StarTrackerFastTranslator(StarTrackerTranslator):
     name = "StarTrackerFast"
@@ -253,3 +249,7 @@ class StarTrackerFastTranslator(StarTrackerTranslator):
     @cache_translation
     def to_instrument(self):
         return "StarTrackerFast"
+
+    @cache_translation
+    def to_detector_serial(self):
+        return "00:0F:31:03:3F:BA"    # MAC address
