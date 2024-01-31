@@ -69,7 +69,7 @@ CCDs : &CCDs
     "CCD0" :
         detectorType : 0
         id : 0
-        serial : "TBD"
+        serial : "00:0f:31:03:60:c2"    # MAC address
         offset : [0, 0]                 # mm
         refpos : [1648, 1236]           # centre of chip
         # 
