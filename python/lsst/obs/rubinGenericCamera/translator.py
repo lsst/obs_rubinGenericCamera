@@ -9,7 +9,7 @@ from lsst.obs.lsst.translators.lsst import LsstBaseTranslator
 
 from lsst.utils import getPackageDir
 
-__all__ = ["StarTrackerTranslator", "StarTrackerWideTranslator", "StarTrackerFastTranslator",]
+__all__ = ["StarTrackerNarrwTranslator", "StarTrackerWideTranslator", "StarTrackerFastTranslator",]
 
 
 class RubinGenericCameraTranslator(LsstBaseTranslator):
@@ -120,10 +120,10 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
 
 
 class StarTrackerTranslator(RubinGenericCameraTranslator):
-    name = "StarTracker"
+    name = None                         # must be specialised
     """Name of this translation class"""
 
-    supported_instrument = "StarTracker"
+    supported_instrument = None         # must be specialised
     """Supports the Rubin Star Tracker instrument."""
 
     @classmethod
@@ -151,6 +151,14 @@ class StarTrackerTranslator(RubinGenericCameraTranslator):
 
         return (True, camId)
 
+
+class StarTrackerNarrwTranslator(StarTrackerTranslator):
+    name = "StarTrackerNarrw"
+    """Name of this translation class"""
+
+    supported_instrument = "StarTrackerNarrw"
+    """Supports the Rubin Star Tracker instrument."""
+
     @classmethod
     def can_translate(cls, header, filename=None):
         """Indicate whether this translation class can translate the
@@ -176,7 +184,7 @@ class StarTrackerTranslator(RubinGenericCameraTranslator):
 
     @cache_translation
     def to_instrument(self):
-        return "StarTracker"
+        return "StarTrackerNarrw"
 
 
 class StarTrackerWideTranslator(StarTrackerTranslator):

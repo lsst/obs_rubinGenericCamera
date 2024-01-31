@@ -1,5 +1,5 @@
 description: ISR for Rubin StarTrackers on the RSST
-instrument: lsst.obs.rubinGenericCamera.StarTracker
+instrument: lsst.obs.rubinGenericCamera.StarTrackerNarrw
 
 tasks:
   isr:

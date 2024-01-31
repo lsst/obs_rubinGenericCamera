@@ -44,7 +44,7 @@ AMP : &AMP
 
   #                         [[  x0,   y0], [xSize, ySize]]
   rawBBox                 : &rawBBox
-                            [[   0,    0], [ 1692,  1352]]   # Total bbox of trimmed amplifier
+                            [[   0,    0], [ 1648,  1236]]   # Total bbox of trimmed amplifier
   rawDataBBox             : *rawBBox
   rawSerialPrescanBBox    : [[0,    0], [0,         0]] # serial prescan
   rawSerialOverscanBBox   : [[0,    0], [0,         0]] # serial overscan
@@ -66,14 +66,14 @@ AMP : &AMP
 # A list of detectors in the camera; we only have one
 #
 CCDs : &CCDs
-    "0" :
+    "CCD0" :
         detectorType : 0
         id : 0
         serial : "TBD"
         offset : [0, 0]                 # mm
-        refpos : [1692, 1352]           # centre of chip
+        refpos : [1648, 1236]           # centre of chip
         # 
-        bbox : [[0, 0], [3384, 2704]]   # total bbox of trimmed detector
+        bbox : [[0, 0], [3296, 2472]]   # total bbox of trimmed detector
         pixelSize : [3.69e-3, 3.69e-3]  # in mm (from Edmunds Scientific)
         transformDict : {nativeSys : 'Pixels', transforms : None}
         transposeDetector : False

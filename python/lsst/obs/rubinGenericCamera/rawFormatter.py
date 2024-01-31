@@ -1,9 +1,9 @@
-__all__ = ["StarTrackerRawFormatter", "StarTrackerWideRawFormatter", "StarTrackerFastRawFormatter",]
+__all__ = ["StarTrackerNarrwRawFormatter", "StarTrackerWideRawFormatter", "StarTrackerFastRawFormatter",]
 
-from .translator import StarTrackerTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
+from .translator import StarTrackerNarrwTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
 from lsst.obs.base import FitsRawFormatterBase
 from .filters import RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS
-from ._instrument import StarTracker, StarTrackerWide, StarTrackerFast
+from ._instrument import StarTrackerNarrw, StarTrackerWide, StarTrackerFast
 from lsst.obs.base import InitialSkyWcsError
 
 
@@ -61,9 +61,9 @@ class RubinGenericCameraRawFormatter(FitsRawFormatterBase):
         )
 
 
-class StarTrackerRawFormatter(RubinGenericCameraRawFormatter):
-    cameraClass = StarTracker
-    translatorClass = StarTrackerTranslator
+class StarTrackerNarrwRawFormatter(RubinGenericCameraRawFormatter):
+    cameraClass = StarTrackerNarrw
+    translatorClass = StarTrackerNarrwTranslator
 
 
 class StarTrackerWideRawFormatter(RubinGenericCameraRawFormatter):

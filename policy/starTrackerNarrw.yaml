@@ -21,7 +21,7 @@
 #
 #
 
-name : "StarTracker"
+name : "StarTrackerNarrw"
 plateScale : 390.357         # arcsec/mm: MFL 1.44042 arcsec/pixel; 3.69 micron pixels (see pixelSize below)
 
 # Provide transformations *from* the nativeSys *to* the specified system (e.g. FieldAngle)
@@ -66,7 +66,7 @@ AMP : &AMP
 # A list of detectors in the camera; we only have one
 #
 CCDs : &CCDs
-    "0" :
+    "CCD0" :
         detectorType : 0
         id : 0
         serial : "TBD"

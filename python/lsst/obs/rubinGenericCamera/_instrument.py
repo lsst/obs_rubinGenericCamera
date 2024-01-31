@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__all__ = ("RubinGenericCamera", "StarTracker", "StarTrackerWide", "StarTrackerFast")
+__all__ = ("RubinGenericCamera", "StarTrackerNarrw", "StarTrackerWide", "StarTrackerFast")
 
 import os.path
 
@@ -28,7 +28,7 @@ from lsst.utils import getPackageDir
 from lsst.obs.base import VisitSystem
 from lsst.obs.lsst import LsstCam
 from .filters import RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS
-from .translator import StarTrackerTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
+from .translator import StarTrackerNarrwTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
 
 PACKAGE_DIR = getPackageDir("obs_rubinGenericCamera")
 
@@ -99,7 +99,7 @@ class RubinGenericCamera(LsstCam):
         )
 
 
-class StarTracker(RubinGenericCamera):
+class StarTrackerNarrw(RubinGenericCamera):
     """Specialization of Rubin Generic Camera for the narrow-field StarTracker
 
     Parameters
@@ -110,18 +110,18 @@ class StarTracker(RubinGenericCamera):
         An ordered list of filters to define the set of PhysicalFilters
         associated with this instrument in the registry.
     """
-    instrument = "StarTracker"
-    policyName = "starTracker"
-    translatorClass = StarTrackerTranslator
+    instrument = "StarTrackerNarrw"
+    policyName = "starTrackerNarrw"
+    translatorClass = StarTrackerNarrwTranslator
 
     def getRawFormatter(self, dataId):
         # Docstring inherited from Instrument.getRawFormatter
         # local import to prevent circular dependency
-        from .rawFormatter import StarTrackerRawFormatter
-        return StarTrackerRawFormatter
+        from .rawFormatter import StarTrackerNarrwRawFormatter
+        return StarTrackerNarrwRawFormatter
 
 
-class StarTrackerWide(StarTracker):
+class StarTrackerWide(StarTrackerNarrw):
     """Specialization of Rubin Generic Camera for the wide-field StarTracker
 
     Parameters
@@ -143,7 +143,7 @@ class StarTrackerWide(StarTracker):
         return StarTrackerWideRawFormatter
 
 
-class StarTrackerFast(StarTracker):
+class StarTrackerFast(StarTrackerNarrw):
     """Specialization of Rubin Generic Camera for the high-cadence Star Tracker
 
     Parameters
