@@ -146,7 +146,7 @@ class StarTrackerNarrwTranslator(StarTrackerTranslator):
     """Name of this translation class"""
 
     supported_instrument = "StarTrackerNarrw"
-    """Supports the Rubin Star Tracker instrument."""
+    """Supports the Rubin Star Tracker narrow-field instrument."""
 
     @classmethod
     def can_translate(cls, header, filename=None):
