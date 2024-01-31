@@ -2,11 +2,11 @@
 
 .. _lsst.obs.rubinGenericCamera:
 
-#############
+###########################
 lsst.obs.rubinGenericCamera
-#############
+###########################
 
-The ``obs_rubinGenericCamera`` module defines RUBINGENERICCAMERA camera specific configuration.
+The ``obs_rubinGenericCamera`` module defines Rubin generic camera specific configurations.
 
 .. Add subsections with toctree to individual topic pages.
 
@@ -30,5 +30,5 @@ Python API reference
 
 .. automodapi:: lsst.obs.rubinGenericCamera
    :no-main-docstr:
-.. automodapi:: lsst.obs.rubinGenericCamera.translators
+.. automodapi:: lsst.obs.rubinGenericCamera.translator
    :no-main-docstr:
