@@ -42,7 +42,7 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
 
     _trivial_map = {
         "boresight_rotation_angle": (["ROTPA", "ROTANGLE"], dict(default=np.NaN, unit=u.deg)),
-        "detector_name": "CAMMM",
+        "detector_name": "CCD0",
         "object": ("OBJECT", dict(default="UNKNOWN")),
         "observation_id": "OBSID",
         "observation_type": "IMGTYPE",
@@ -148,6 +148,10 @@ class StarTrackerNarrwTranslator(StarTrackerTranslator):
     supported_instrument = "StarTrackerNarrw"
     """Supports the Rubin Star Tracker narrow-field instrument."""
 
+    _const_map = {"instrument": "StarTrackerNarrw",
+                  "detector_serial": "00:0f:31:03:ae:60",  # MAC address
+                  }
+
     @classmethod
     def can_translate(cls, header, filename=None):
         """Indicate whether this translation class can translate the
@@ -171,14 +175,6 @@ class StarTrackerNarrwTranslator(StarTrackerTranslator):
 
         return isStarTracker and camId == 102
 
-    @cache_translation
-    def to_instrument(self):
-        return "StarTrackerNarrw"
-
-    @cache_translation
-    def to_detector_serial(self):
-        return "00:0f:31:03:ae:60"
-
 
 class StarTrackerWideTranslator(StarTrackerTranslator):
     name = "StarTrackerWide"
@@ -186,6 +182,10 @@ class StarTrackerWideTranslator(StarTrackerTranslator):
 
     supported_instrument = "StarTrackerWide"
     """Supports the Rubin Star Tracker wide-field instrument."""
+
+    _const_map = {"instrument": "StarTrackerWide",
+                  "detector_serial": "00:0f:31:03:60:c2",  # MAC address
+                  }
 
     @classmethod
     def can_translate(cls, header, filename=None):
@@ -209,14 +209,6 @@ class StarTrackerWideTranslator(StarTrackerTranslator):
 
         return isStarTracker and camId == 101
 
-    @cache_translation
-    def to_instrument(self):
-        return "StarTrackerWide"
-
-    @cache_translation
-    def to_detector_serial(self):
-        return "00:0f:31:03:60:c2"      # MAC address
-
 
 class StarTrackerFastTranslator(StarTrackerTranslator):
     name = "StarTrackerFast"
@@ -224,6 +216,10 @@ class StarTrackerFastTranslator(StarTrackerTranslator):
 
     supported_instrument = "starTrackerFast"
     """Supports the STARTRACKERFAST dome-seeing instrument."""
+
+    _const_map = {"instrument": "StarTrackerFast",
+                  "detector_serial": "00:0F:31:03:3F:BA",  # MAC address
+                  }
 
     @classmethod
     def can_translate(cls, header, filename=None):
@@ -246,11 +242,3 @@ class StarTrackerFastTranslator(StarTrackerTranslator):
         isStarTracker, camId = cls._is_startracker(header, filename=None)
 
         return isStarTracker and camId == 103
-
-    @cache_translation
-    def to_instrument(self):
-        return "StarTrackerFast"
-
-    @cache_translation
-    def to_detector_serial(self):
-        return "00:0F:31:03:3F:BA"    # MAC address

@@ -26,9 +26,3 @@ A header file can be generated in this format by running:
 .. code-block:: bash
 
    astrometadata dump myTestfile.fits > tests/headers/myTestfile.yaml
-
-
-CI Tests
---------
-
-Integration tests are run from within the `ci_lsst <https://github.com/lsst-dm/ci_lsst>`_ package.
