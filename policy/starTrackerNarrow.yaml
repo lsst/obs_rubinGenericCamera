@@ -21,7 +21,7 @@
 #
 #
 
-name : "StarTrackerNarrw"
+name : "StarTrackerNarrow"
 plateScale : 390.357         # arcsec/mm: MFL 1.44042 arcsec/pixel; 3.69 micron pixels (see pixelSize below)
 
 # Provide transformations *from* the nativeSys *to* the specified system (e.g. FieldAngle)

@@ -6,7 +6,7 @@ import os
 import lsst.utils.tests
 
 from lsst.obs.base.ingest_tests import IngestTestBase
-from lsst.obs.rubinGenericCamera import StarTrackerWide, StarTrackerNarrw, StarTrackerFast
+from lsst.obs.rubinGenericCamera import StarTrackerWide, StarTrackerNarrow, StarTrackerFast
 from lsst.obs.rubinGenericCamera.filters import RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS
 
 testDataPackage = "obs_rubinGenericCamera"
@@ -17,16 +17,16 @@ except (LookupError, lsst.pex.exceptions.NotFoundError):
 
 
 @unittest.skipIf(testDataDirectory is None, "obs_rubinGenericCamera must be set up")
-class StarTrackerNarrwIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
-    instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerNarrw"
+class StarTrackerNarrowIngestTestCase(IngestTestBase, lsst.utils.tests.TestCase):
+    instrumentClassName = "lsst.obs.rubinGenericCamera.StarTrackerNarrow"
 
     visits = None                       # we don't have a definition of visits
 
     def setUp(self):
         self.ingestdir = os.path.dirname(__file__)
-        self.instrument = StarTrackerNarrw()
+        self.instrument = StarTrackerNarrow()
         self.file = os.path.join(testDataDirectory, "data", "input", "raw", "GC102_O_20221208_000211.fits.gz")
-        self.dataIds = [dict(instrument="StarTrackerNarrw", exposure=2022120800211, detector=0)]
+        self.dataIds = [dict(instrument="StarTrackerNarrow", exposure=2022120800211, detector=0)]
         self.filterLabel = RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS[0].makeFilterLabel()
 
         super().setUp()
