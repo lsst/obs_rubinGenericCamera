@@ -22,7 +22,7 @@
 import os.path
 import unittest
 import astropy.units as u
-from lsst.obs.rubinGenericCamera.translator import StarTrackerNarrwTranslator, \
+from lsst.obs.rubinGenericCamera.translator import StarTrackerNarrowTranslator, \
     StarTrackerWideTranslator, StarTrackerFastTranslator   # noqa: F401 -- register the translators
 
 from astro_metadata_translator.tests import MetadataAssertHelper
@@ -67,7 +67,7 @@ class RubinGenericCameraMetadataTranslatorTestCase(unittest.TestCase, MetadataAs
                   )),
             ("GC102_O_20221208_000211.yaml",
              dict(telescope="Simonyi Survey Telescope",
-                  instrument="StarTrackerNarrw",
+                  instrument="StarTrackerNarrow",
                   boresight_rotation_coord="sky",
                   dark_time=3.0 * u.s,
                   detector_group="None",

@@ -1,9 +1,9 @@
-__all__ = ["StarTrackerNarrwRawFormatter", "StarTrackerWideRawFormatter", "StarTrackerFastRawFormatter",]
+__all__ = ["StarTrackerNarrowRawFormatter", "StarTrackerWideRawFormatter", "StarTrackerFastRawFormatter",]
 
-from .translator import StarTrackerNarrwTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
+from .translator import StarTrackerNarrowTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
 from lsst.obs.base import FitsRawFormatterBase
 from .filters import RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS
-from ._instrument import StarTrackerNarrw, StarTrackerWide, StarTrackerFast
+from ._instrument import StarTrackerNarrow, StarTrackerWide, StarTrackerFast
 
 
 class RubinGenericCameraRawFormatter(FitsRawFormatterBase):
@@ -15,9 +15,9 @@ class RubinGenericCameraRawFormatter(FitsRawFormatterBase):
         return self.cameraClass().getCamera()[id]
 
 
-class StarTrackerNarrwRawFormatter(RubinGenericCameraRawFormatter):
-    cameraClass = StarTrackerNarrw
-    translatorClass = StarTrackerNarrwTranslator
+class StarTrackerNarrowRawFormatter(RubinGenericCameraRawFormatter):
+    cameraClass = StarTrackerNarrow
+    translatorClass = StarTrackerNarrowTranslator
 
 
 class StarTrackerWideRawFormatter(RubinGenericCameraRawFormatter):

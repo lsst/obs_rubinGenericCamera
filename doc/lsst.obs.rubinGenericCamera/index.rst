@@ -8,10 +8,6 @@ lsst.obs.rubinGenericCamera
 
 The ``obs_rubinGenericCamera`` module defines Rubin generic camera specific configurations.
 
-*N.b.*: the narrow field camera is called ``starTrackerNarrw`` (with a missing ``o``) due to ``butler``
-name limits.  These are being addressed with ``RFC-984``; once that's been implemented we should change
-the name to ``starTrackerNarrow``.
-
 .. Add subsections with toctree to individual topic pages.
 
 .. _lsst.obs.lsst-contributing:
@@ -31,7 +27,7 @@ Start with some environment variables (my data's at USDF), and a list of the ins
    LABEL="rhl-scr"
    COLLBASE=u/rhl/tmp
 
-   instruments="StarTrackerNarrw StarTrackerWide StarTrackerFast"
+   instruments="StarTrackerNarrow StarTrackerWide StarTrackerFast"
 
 
 Clean up from previous attempts and initialise the ``butler``

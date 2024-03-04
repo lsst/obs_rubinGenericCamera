@@ -9,7 +9,7 @@ from lsst.obs.lsst.translators.lsst import LsstBaseTranslator
 
 from lsst.utils import getPackageDir
 
-__all__ = ["StarTrackerNarrwTranslator", "StarTrackerWideTranslator", "StarTrackerFastTranslator",]
+__all__ = ["StarTrackerNarrowTranslator", "StarTrackerWideTranslator", "StarTrackerFastTranslator",]
 
 
 class RubinGenericCameraTranslator(LsstBaseTranslator):
@@ -141,14 +141,14 @@ class StarTrackerTranslator(RubinGenericCameraTranslator):
         return (True, camId)
 
 
-class StarTrackerNarrwTranslator(StarTrackerTranslator):
-    name = "StarTrackerNarrw"
+class StarTrackerNarrowTranslator(StarTrackerTranslator):
+    name = "StarTrackerNarrow"
     """Name of this translation class"""
 
-    supported_instrument = "StarTrackerNarrw"
+    supported_instrument = "StarTrackerNarrow"
     """Supports the Rubin Star Tracker narrow-field instrument."""
 
-    _const_map = {"instrument": "StarTrackerNarrw",
+    _const_map = {"instrument": "StarTrackerNarrow",
                   "detector_serial": "00:0f:31:03:ae:60",  # MAC address
                   }
 
