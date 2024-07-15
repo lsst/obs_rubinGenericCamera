@@ -41,7 +41,7 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
     """Constant mappings"""
 
     _trivial_map = {
-        "boresight_rotation_angle": (["ROTPA", "ROTANGLE"], dict(default=np.NaN, unit=u.deg)),
+        "boresight_rotation_angle": (["ROTPA", "ROTANGLE"], dict(default=np.nan, unit=u.deg)),
         "detector_name": "CCD0",
         "object": ("OBJECT", dict(default="UNKNOWN")),
         "observation_id": "OBSID",
