@@ -2,3 +2,8 @@
 __pycache__
 tests/.tests
 python/lsst/obs/rubinGenericCamera/version.py
+python/*.dist-info/
+.coverage*
+_build.*
+config.log
+.sconsign.dblite
