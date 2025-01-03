@@ -242,3 +242,10 @@ class StarTrackerFastTranslator(StarTrackerTranslator):
         isStarTracker, camId = cls._is_startracker(header, filename=None)
 
         return isStarTracker and camId == 103
+
+
+def _force_load():
+    # This function exists solely to be loaded by the
+    # astro_metadata_translators entry point. The function
+    # will not be called.
+    pass
