@@ -2,4 +2,4 @@
 name = "lsst-obs-rubinGenericCamera"
 
 [project.entry-points.astro_metadata_translators]
-obs_rubinGenericCamera = "lsst.obs.rubinGenericCamera.translator:_force_load"
+obs_rubinGenericCamera = "lsst.obs.rubinGenericCamera.translator:_register_translators"
