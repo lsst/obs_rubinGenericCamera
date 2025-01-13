@@ -242,3 +242,21 @@ class StarTrackerFastTranslator(StarTrackerTranslator):
         isStarTracker, camId = cls._is_startracker(header, filename=None)
 
         return isStarTracker and camId == 103
+
+
+def _register_translators() -> list[str]:
+    """Ensure that the translators are loaded.
+
+    When this function is imported we are guaranteed to also import the
+    translators which will automatically register themselves.
+
+    Returns
+    -------
+    translators : `list` [ `str` ]
+        The names of the translators provided by this package.
+    """
+    return [
+        StarTrackerNarrowTranslator.name,
+        StarTrackerWideTranslator.name,
+        StarTrackerFastTranslator.name,
+    ]
