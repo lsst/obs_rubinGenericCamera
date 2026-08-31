@@ -21,16 +21,12 @@
 
 __all__ = ("RubinGenericCamera", "StarTrackerNarrow", "StarTrackerWide", "StarTrackerFast")
 
-import os.path
-
 import lsst.obs.base.yamlCamera as yamlCamera
-from lsst.utils import getPackageDir
 from lsst.obs.base import VisitSystem
 from lsst.obs.lsst import LsstCam
+from lsst.resources import ResourcePath
 from .filters import RUBIN_GENERIC_CAMERA_FILTER_DEFINITIONS
 from .translator import StarTrackerNarrowTranslator, StarTrackerWideTranslator, StarTrackerFastTranslator
-
-PACKAGE_DIR = getPackageDir("obs_rubinGenericCamera")
 
 
 class RubinGenericCamera(LsstCam):
@@ -79,9 +75,9 @@ class RubinGenericCamera(LsstCam):
     def getCamera(cls):
         # Constructing a YAML camera takes a long time but we rely on
         # yamlCamera to cache for us.
-        # N.b. can't inherit as PACKAGE_DIR isn't in the class
-        cameraYamlFile = os.path.join(PACKAGE_DIR, "policy", f"{cls.policyName}.yaml")
-        return yamlCamera.makeCamera(cameraYamlFile)
+        cameraYamlFile = ResourcePath(f"eups://obs_rubinGenericCamera/policy/{cls.policyName}.yaml")
+        with cameraYamlFile.as_local() as local_file:
+            return yamlCamera.makeCamera(local_file.ospath)
 
     def getRawFormatter(self, dataId):
         return None
