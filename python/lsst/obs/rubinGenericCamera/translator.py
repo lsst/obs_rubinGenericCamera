@@ -17,10 +17,10 @@ class RubinGenericCameraTranslator(LsstBaseTranslator):
     supported_instrument = None         # you must specialise this class
     """Supports the LSST Generic Camera instrument."""
 
-    default_search_path = "eups://obs_rubinGenericCamera/corrections/"
+    default_search_path = "resource://lsst.obs.rubinGenericCamera/resources/corrections/"
     """Default search path to use to locate header correction files."""
 
-    default_resource_root = "eups://obs_rubinGenericCamera/corrections/"
+    default_resource_root = "resource://lsst.obs.rubinGenericCamera/resources/corrections/"
     """Default resource path root to use to locate header correction files."""
 
     DETECTOR_MAX = 1
